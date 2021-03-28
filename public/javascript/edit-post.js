@@ -11,7 +11,6 @@ async function editFormHandler(event) {
       method: 'PUT',
       body: JSON.stringify({
         post_id: id,
-        city,
         depart_station,
         arrive_station, 
         content

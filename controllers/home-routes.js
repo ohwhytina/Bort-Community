@@ -10,7 +10,6 @@ router.get('/', (req, res) => {
     Post.findAll({
       attributes: [
         'id',
-        'city',
         'depart_station',
         'arrive_station',
         'content',
@@ -60,7 +59,6 @@ Post.findOne({
   },
   attributes: [
     'id',
-    'city',
     'depart_station',
     'arrive_station',
     'content',

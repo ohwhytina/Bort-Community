@@ -8,7 +8,6 @@ router.get('/', (req, res) => {
     Post.findAll({
         attributes: [
             'id',
-            'city',
             'depart_station',
             'arrive_station',
             'content',
@@ -38,6 +37,7 @@ router.get('/', (req, res) => {
         });
 
 });
+
 router.get('/:id', (req, res) => {
     Post.findOne({
             where: {
@@ -45,7 +45,6 @@ router.get('/:id', (req, res) => {
             },
             attributes: [
                 'id',
-                'city',
                 'depart_station',
                 'arrive_station',
                 'content',
@@ -80,7 +79,6 @@ router.get('/:id', (req, res) => {
 
 router.post('/', withAuth, (req, res) => {
     Post.create({
-            city: req.body.city,
             depart_station: req.body.depart_station,
             arrive_station: req.body.arrive_station,
             content: req.body.content,
@@ -95,7 +93,6 @@ router.post('/', withAuth, (req, res) => {
 
 router.put('/:id', withAuth, (req, res) => {
     Post.update({
-            city: req.body.city,
             depart_station: req.body.depart_station,
             arrive_station: req.body.arrive_station, 
             content: req.body.content

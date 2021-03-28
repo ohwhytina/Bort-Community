@@ -15,10 +15,6 @@ Post.init(
           primaryKey: true,
           autoIncrement: true
         },
-        city: {
-          type: DataTypes.STRING,
-          allowNull: false
-        },
         depart_station: {
           type: DataTypes.TEXT,
           allowNull: false

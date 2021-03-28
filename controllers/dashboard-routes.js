@@ -14,7 +14,6 @@ router.get('/', withAuth, (req, res) => {
       },
       attributes: [
         'id',
-        'city',
         'depart_station',
         'arrive_station',
         'content',
@@ -35,25 +34,16 @@ router.get('/', withAuth, (req, res) => {
         }
       ]
     })
-      .then(dbPostData => {
-        const posts = dbPostData.map(post => post.get({ plain: true }));
-
-      var apiBartStationUrl = "http://api.bart.gov/api/stn.aspx?cmd=stns&key=MW9S-E7SL-26DU-VV8V&json=y";
-      axios(apiBartStationUrl)
-        .then(bart => {
-          var bartname = bart.data.root.stations.station
-          res.render('dashboard', {
-            posts, 
-            loggedIn: true, 
-            bartname
-          });
-         });
+    .then(dbPostData => {
+      const posts = dbPostData.map(post => post.get({ plain: true }));
+       res.render('dashboard', { posts, loggedIn: true });
     })
-      .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-      });
-  });
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
 
   // get one post for dashboard
 
@@ -64,7 +54,6 @@ router.get('/', withAuth, (req, res) => {
         },
         attributes: [
             'id',
-            'city',
             'depart_station',
             'arrive_station',
             'content',
@@ -98,8 +87,50 @@ router.get('/', withAuth, (req, res) => {
       });
   });
 
-router.get('/new', (req, res) => {
-  res.render('new-post');
+router.get('/new', (req, res) => {Post.findAll({
+  where: {
+    user_id: req.session.user_id
+  },
+  attributes: [
+    'id',
+    'depart_station',
+    'arrive_station',
+    'content',
+    'created_at'
+  ],
+  include: [
+    {
+      model: Comment,
+      attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+      include: {
+        model: User,
+        attributes: ['username']
+      }
+    },
+    {
+      model: User,
+      attributes: ['username']
+    }
+  ]
+})
+  .then(dbPostData => {
+    const posts = dbPostData.map(post => post.get({ plain: true }));
+
+  var apiBartStationUrl = "http://api.bart.gov/api/stn.aspx?cmd=stns&key=MW9S-E7SL-26DU-VV8V&json=y";
+  axios(apiBartStationUrl)
+    .then(bart => {
+      var bartname = bart.data.root.stations.station
+      res.render('new-post', {
+        posts, 
+        loggedIn: true, 
+        bartname
+      });
+     });
+})
+  .catch(err => {
+    console.log(err);
+    res.status(500).json(err);
+  });
 });
 
   
