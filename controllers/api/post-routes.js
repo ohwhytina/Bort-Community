@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
             'city',
             'depart_station',
             'arrive_station',
-            'time',
+            'content',
             'created_at'
           ],
             order: [
@@ -48,7 +48,7 @@ router.get('/:id', (req, res) => {
                 'city',
                 'depart_station',
                 'arrive_station',
-                'time',
+                'content',
                 'created_at'
               ],
             include: [{
@@ -83,7 +83,7 @@ router.post('/', withAuth, (req, res) => {
             city: req.body.city,
             depart_station: req.body.depart_station,
             arrive_station: req.body.arrive_station,
-            time: req.body.time,
+            content: req.body.content,
             user_id: req.session.user_id
         })
         .then(dbPostData => res.json(dbPostData))
@@ -97,8 +97,8 @@ router.put('/:id', withAuth, (req, res) => {
     Post.update({
             city: req.body.city,
             depart_station: req.body.depart_station,
-            arrive_station: req.body.arrive_station,
-            time: req.body.time
+            arrive_station: req.body.arrive_station, 
+            content: req.body.content
         }, {
             where: {
                 id: req.params.id

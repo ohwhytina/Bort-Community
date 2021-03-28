@@ -13,8 +13,8 @@ async function editFormHandler(event) {
         post_id: id,
         city,
         depart_station,
-        arrive_station,
-        time
+        arrive_station, 
+        content
       }),
       headers: {
         'Content-Type': 'application/json'

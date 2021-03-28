@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="612pt" height="792pt" viewBox="0 0 612 792">
+<g enable-background="new">
+<clipPath id="cp0">
+<path transform="matrix(1,0,0,-1,0,792)" d="M 18.1417 -14.1732 L 630.1417 -14.1732 L 630.1417 777.8268 L 18.1417 777.8268 Z "/>
+</clipPath>
+<g clip-path="url(#cp0)">
+<text fill="#d9d9d9" xml:space="preserve" transform="matrix(.24 0 -0 .24 125.1817 346.5732)" font-size="458" font-family="SignPainter"><tspan y="-791" x="0 288.99803 458.00004 620.132 831.27 1077.2161 1339.192 1508.1941">WELCOME </tspan></text>
+</g>
+<clipPath id="cp1">
+<path transform="matrix(1,0,0,-1,0,792)" d="M 18.1417 -14.1732 L 630.1417 -14.1732 L 630.1417 777.8268 L 18.1417 777.8268 Z "/>
+</clipPath>
+<g clip-path="url(#cp1)">
+<text fill="#d9d9d9" xml:space="preserve" transform="matrix(.24 0 -0 .24 254.3017 452.8932)" font-size="458" font-family="SignPainter"><tspan y="-791" x="0 184.9862">TO</tspan></text>
+<text fill="#d9d9d9" xml:space="preserve" transform="matrix(.24 0 -0 .24 357.7417 452.8932)" font-size="458" font-family="SignPainter"><tspan y="-791" x="0"> </tspan></text>
+</g>
+<clipPath id="cp2">
+<path transform="matrix(1,0,0,-1,0,792)" d="M 18.1417 -14.1732 L 630.1417 -14.1732 L 630.1417 777.8268 L 18.1417 777.8268 Z "/>
+</clipPath>
+<g clip-path="url(#cp2)">
+<text fill="#d9d9d9" xml:space="preserve" transform="matrix(.24 0 -0 .24 119.1817 559.4532)" font-size="458" font-family="SignPainter"><tspan y="-791" x="0 212.00821">CO</tspan></text>
+<text fill="#d9d9d9" xml:space="preserve" transform="matrix(.24 0 -0 .24 229.1017 559.4532)" font-size="458" font-family="SignPainter"><tspan y="-791" x="0">-</tspan></text>
+<text fill="#d9d9d9" xml:space="preserve" transform="matrix(.24 0 -0 .24 264.8617 559.4532)" font-size="458" font-family="SignPainter"><tspan y="-791" x="0 207.9778 410.0016 619.8114 804.8892">BART!</tspan></text>
+<text fill="#d9d9d9" xml:space="preserve" transform="matrix(.24 0 -0 .24 492.8617 559.4532)" font-size="458" font-family="SignPainter"><tspan y="-791" x="0"> </tspan></text>
+</g>
+</g>
+</svg>

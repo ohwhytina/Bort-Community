@@ -25,7 +25,7 @@ router.get('/:id', (req, res) => {
                         'city',
                         'depart_station',
                         'arrive_station',
-                        'time',
+                        'content',
                         'created_at'
                       ],
                 },
@@ -34,12 +34,12 @@ router.get('/:id', (req, res) => {
                     attributes: ['id', 'comment_text', 'created_at'],
                     include: {
                         model: Post,
-                        attributes: ['city', 'depart_station', 'arrive_station', 'time']
+                        attributes: ['city', 'depart_station', 'arrive_station', 'content']
                     }
                 },
                 {
                     model: Post,
-                    attributes: ['city', 'depart_station', 'arrive_station', 'time'],
+                    attributes: ['city', 'depart_station', 'arrive_station', 'content'],
                 }
             ]
         })

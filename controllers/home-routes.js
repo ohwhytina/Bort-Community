@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { Post, User, Comment } = require('../models');
+const axios = require('axios')
 
 // get all posts for homepage
 
@@ -12,7 +13,7 @@ router.get('/', (req, res) => {
         'city',
         'depart_station',
         'arrive_station',
-        'time',
+        'content',
         'created_at'
       ],
       include: [
@@ -30,19 +31,25 @@ router.get('/', (req, res) => {
         }
       ]
     })
-      .then(dbPostData => {
-        const posts = dbPostData.map(post => post.get({ plain: true }));
-  
+    .then(dbPostData => {
+      const posts = dbPostData.map(post => post.get({ plain: true }));
+
+    var apiBartStationUrl = "http://api.bart.gov/api/stn.aspx?cmd=stns&key=MW9S-E7SL-26DU-VV8V&json=y";
+    axios(apiBartStationUrl)
+      .then(bart => {
+        var bartname = bart.data.root.stations.station
         res.render('homepage', {
+          bartname,
           posts,
           loggedIn: req.session.loggedIn
         });
-      })
-      .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-      });
-  });
+       });
+  })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
   
   // get single post
 
@@ -56,7 +63,7 @@ Post.findOne({
     'city',
     'depart_station',
     'arrive_station',
-    'time',
+    'content',
     'created_at'
   ],
   include: [
@@ -111,4 +118,4 @@ router.get('/signup', (req, res) => {
   res.render('signup');
 });
   
-  module.exports = router;
+module.exports = router;

@@ -9,8 +9,8 @@ async function newFormHandler(event) {
       body: JSON.stringify({
         city,
         depart_station,
-        arrive_station,
-        time
+        arrive_station, 
+        content
       }),
       headers: {
         'Content-Type': 'application/json'

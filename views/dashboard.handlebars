@@ -1,0 +1,22 @@
+
+{{> main-header post.main-header}}
+
+<div class="uk-background-muted uk-card uk-card-body uk-text-center">
+        <a type="submit" class="new-post uk-box-shadow-large uk-button uk-button-primary" href="/dashboard/new">Create a new post!</a>
+    </div>
+
+
+{{#if posts.length}}
+<article class="uk-padding uk-card uk-card-body ">
+  <ul class="uk-comment-list">
+    {{#each posts as |post|}}
+      {{> user-posts post}}
+    {{/each}}
+  </ul>
+</article>
+
+{{/if}}
+
+
+</body>
+<script src="/javascript/add-post.js"></script>

@@ -2,6 +2,7 @@ const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { Post, User, Comment } = require('../models');
 const withAuth = require('../utils/auth');
+const axios = require('axios')
 
 // get all posts for dashboard
 router.get('/', withAuth, (req, res) => {
@@ -16,7 +17,7 @@ router.get('/', withAuth, (req, res) => {
         'city',
         'depart_station',
         'arrive_station',
-        'time',
+        'content',
         'created_at'
       ],
       include: [
@@ -36,8 +37,18 @@ router.get('/', withAuth, (req, res) => {
     })
       .then(dbPostData => {
         const posts = dbPostData.map(post => post.get({ plain: true }));
-         res.render('dashboard', { posts, loggedIn: true });
-      })
+
+      var apiBartStationUrl = "http://api.bart.gov/api/stn.aspx?cmd=stns&key=MW9S-E7SL-26DU-VV8V&json=y";
+      axios(apiBartStationUrl)
+        .then(bart => {
+          var bartname = bart.data.root.stations.station
+          res.render('dashboard', {
+            posts, 
+            loggedIn: true, 
+            bartname
+          });
+         });
+    })
       .catch(err => {
         console.log(err);
         res.status(500).json(err);
@@ -56,7 +67,7 @@ router.get('/', withAuth, (req, res) => {
             'city',
             'depart_station',
             'arrive_station',
-            'time',
+            'content',
             'created_at'
           ],
       include: [
@@ -92,4 +103,4 @@ router.get('/new', (req, res) => {
 });
 
   
-  module.exports = router;
+module.exports = router;

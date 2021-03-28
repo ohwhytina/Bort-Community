@@ -1,0 +1,61 @@
+
+
+
+<form class="uk-card-secondary uk-card-body uk-width-3-4 uk-align-center">
+    <fieldset id="new-post-form" class="uk-fieldset">
+
+        <legend class="uk-legend uk-text-center">Post to the community!</legend>
+
+        <div class="uk-margin">
+            <p>Departing Station</p>
+            <select name="departing-train" class="uk-select">
+                <option value="">Please select station...</option>
+                    <div class="stations">
+
+                        {{#each bartname }}
+                        <option>
+                            <p data-stationname={{ this.stationname}}>
+                                {{ this.name }}
+                            </p>
+                        </option>
+                        {{/each }}
+
+                    </div>
+            </select>
+        </div>
+
+        <div class="uk-margin">
+            <p class="">Arrival Station</p>
+            <select name="arrival-train" class="uk-select">
+                <option value="">Please select station...</option>
+                <div class="stations">
+
+                        {{#each bartname }}
+                        <option>
+                            <p data-stationname={{ this.stationname}}>
+                                {{ this.name }}
+                            </p>
+                        </option>
+                        {{/each }}
+
+                    </div>
+            </select>
+        </div>
+
+        <div class="uk-margin">
+            <textarea name="content" type="text" autofocus="true" class="uk-textarea" rows="6" placeholder="Notes"></textarea>
+        </div>
+
+        <div class="uk-margin uk-text-right uk-grid-small uk-child-width-auto uk-grid">
+            <label><input class="uk-checkbox" type="checkbox"> I agree that this post is bart related.</label>
+        </div>
+
+        <div class="uk-card uk-card-body uk-text-center">
+            <a type="create" class="uk-button uk-button-primary uk-align-right" href="/dashboard">Post!</a>
+        </div>
+
+    </fieldset>
+</form>
+
+
+<script src="/javascript/add-post.js"></script>

@@ -27,7 +27,7 @@ Post.init(
           type: DataTypes.TEXT,
           allowNull: false
         },
-        time: {
+        content: {
           type: DataTypes.TEXT,
           allowNull: false
         },

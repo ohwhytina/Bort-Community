@@ -1,0 +1,24 @@
+
+<article class="uk-padding uk-card uk-card-body ">
+    <ul class="uk-comment-list">
+{{> post-info post}}
+
+{{#if loggedIn}}
+
+    <form id="comment-form">
+      <textarea name="comment" type="text" class="uk-textarea" rows="7"></textarea>
+      <button type="submit" class="uk-button uk-button-primary uk-align-right">Submit!</button> 
+    </form>
+
+{{/if}}
+
+{{> comments post.comments}}
+    
+
+  </ul>
+</article>
+</br>
+
+{{#if loggedIn}}
+<script src="/javascript/comment.js"></script>
+{{/if}}

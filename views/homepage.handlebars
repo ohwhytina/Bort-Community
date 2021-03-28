@@ -1,0 +1,38 @@
+
+{{> main-header post.main-header}}
+
+<!-- filter menu -->
+<form class="uk-background-muted">
+  <fieldset class="uk-fieldset uk-padding-remove-bottom uk-padding-small">
+    <p class="uk-text-center">Filter by station:</p>
+    <div class="uk-margin uk-align-center uk-width-1-3">
+      <select class="uk-select">
+          <div class="stations">
+            
+            {{#each bartname }}
+            <option>
+            <p data-stationname= {{ this.stationname}}>
+              {{ this.name }}
+            </p>
+            </option>
+            {{/each }}
+            
+          </div>
+      </select>
+      <button class="uk-align-center uk-button uk-button-primary">Search</button>
+    </div>
+  </fieldset>
+</form>
+
+<!-- posts section -->
+
+<main>
+  {{#if posts.length}}
+  <section>
+    {{#each posts as |post|}}
+    {{> post-info post}}
+    {{/each}}
+
+  </section>
+  {{/if}}
+</main>
