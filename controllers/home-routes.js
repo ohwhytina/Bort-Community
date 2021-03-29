@@ -115,5 +115,18 @@ router.get('/signup', (req, res) => {
   
   res.render('signup');
 });
-  
+
+router.post('/filter'), (req, res) => {
+  if (req.session.loggedIn) {
+    Post.findAll({where: req.body.depart_station})
+    
+    .then(posts => {
+      res.render('homepage', {
+      posts,
+      loggedIn: req.session.loggedIn
+    })
+  })
+  }
+}
+
 module.exports = router;

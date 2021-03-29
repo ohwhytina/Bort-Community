@@ -74,18 +74,36 @@ router.get('/', withAuth, (req, res) => {
         }
       ]
     })
-      .then(dbPostData => {
-        if (dbPostData) {
-          const post = dbPostData.get({ plain: true });
-          res.render('edit-post', { post, loggedIn: true });
-        } else {
-          res.status(404).end();
-        }
-      })
-      .catch(err => {
-        res.status(500).json(err);
-      });
+    .then(dbPostData => {
+      const post = dbPostData.get({ plain: true });
+  
+    var apiBartStationUrl = "http://api.bart.gov/api/stn.aspx?cmd=stns&key=MW9S-E7SL-26DU-VV8V&json=y";
+    axios(apiBartStationUrl)
+      .then(bart => {
+        var bartname = bart.data.root.stations.station
+        res.render('edit-post', {
+          post, 
+          loggedIn: true, 
+          bartname
+        });
+       });
+  })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
   });
+      // .then(dbPostData => {
+      //   if (dbPostData) {
+      //     const post = dbPostData.get({ plain: true });
+      //     res.render('edit-post', { post, loggedIn: true });
+      //   } else {
+      //     res.status(404).end();
+      //   }
+      // })
+      // .catch(err => {
+      //   res.status(500).json(err);
+      // });
 
 router.get('/new', (req, res) => {Post.findAll({
   where: {

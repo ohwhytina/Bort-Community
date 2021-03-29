@@ -6,7 +6,8 @@
   <fieldset class="uk-fieldset uk-padding-remove-bottom uk-padding-small">
     <p class="uk-text-center">Filter by station:</p>
     <div class="uk-margin uk-align-center uk-width-1-3">
-      <select class="uk-select">
+      <select name="departing-train" class="uk-select">
+        <option value="">Please select station...</option>
           <div class="stations">
             
             {{#each bartname }}
@@ -19,7 +20,7 @@
             
           </div>
       </select>
-      <button class="uk-align-center uk-button uk-button-primary">Search</button>
+      <a type= "button" class="uk-align-center uk-button uk-button-primary filter" href="/">Search</a>
     </div>
   </fieldset>
 </form>
@@ -36,3 +37,5 @@
   </section>
   {{/if}}
 </main>
+
+<script src="/javascript/filter-station.js"></script>

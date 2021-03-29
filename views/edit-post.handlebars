@@ -9,18 +9,36 @@
             <div class="uk-margin">
                 <p>Departing Station</p>
                 <select name="departing-train" class="uk-select">
-                    <option value="">Please select station...</option>
-                    <option>Option 01</option>
-                    <option>Option 02</option>
+                    <option value="">{{post.depart_station}}</option>
+                     <div class="stations">
+
+                        {{#each bartname }}
+                        <option>
+                            <p data-stationname={{ this.stationname}}>
+                                {{ this.name }}
+                            </p>
+                        </option>
+                        {{/each }}
+
+                    </div>
                 </select>
             </div>
     
             <div class="uk-margin">
                 <p class="">Arrival Station</p>
                 <select name="arrival-train" class="uk-select">
-                    <option value="">Please select station...</option>
-                    <option>Option 01</option>
-                    <option>Option 02</option>
+                    <option value="">{{post.arrive_station}}</option>
+                     <div class="stations">
+
+                        {{#each bartname }}
+                        <option>
+                            <p data-stationname={{ this.stationname}}>
+                                {{ this.name }}
+                            </p>
+                        </option>
+                        {{/each }}
+
+                    </div>
                 </select>
             </div>
     
@@ -33,9 +51,12 @@
             </div>
 
             <div class="uk-card uk-card-body uk-text-center">
-                <a type="submit" class="uk-button uk-button-primary uk-align-right" href="/dashboard">Update Post!</a>
-                <a type="button" class="uk-button uk-button-primary uk-align-left" href="/dashboard">Delete Post!</a>
+                <a type="button" class="uk-button uk-button-primary uk-align-right edit-post-btn" href="/dashboard">Update Post!</a>
+                <a type="button" class="uk-button uk-button-primary uk-align-left delete-post-btn" href="/dashboard">Delete Post!</a>
             </div>
     
         </fieldset>
     </form>
+
+<script src="/javascript/edit-post.js"></script>
+<script src="/javascript/delete-post.js"></script>

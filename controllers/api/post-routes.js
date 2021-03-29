@@ -92,6 +92,7 @@ router.post('/', withAuth, (req, res) => {
 });
 
 router.put('/:id', withAuth, (req, res) => {
+    console.log(req.body)
     Post.update({
             depart_station: req.body.depart_station,
             arrive_station: req.body.arrive_station, 
