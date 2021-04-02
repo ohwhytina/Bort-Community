@@ -1,0 +1,21 @@
+<section class="post">
+      <article class=" uk-padding uk-card-secondary uk-padding-remove-bottom uk-comment uk-visible-toggle" tabindex="-1">
+        <header class="uk-comment-header uk-position-relative">
+          <div class="uk-grid-medium uk-flex-middle uk-grid">
+            <div class="uk-width-expand">
+              <li>Depart: <a href="#"></a>{{depart_station}}</li> 
+              <li>Arrival: <a href="#"></a>{{arrive_station}}</li> 
+              <ul class="uk-comment-meta uk-subnav uk-subnav-divider uk-margin-remove-top">
+                <li>{{user.username}}</li>
+                <li>{{format_date created_at}}</li>
+                <li><a href="/post/{{id}}">Comments</a></li>
+              </ul>
+            </div>
+          </div>
+        </header>
+        <div class="uk-comment-body">
+          <p>{{content}}</p>
+        </div>
+        <hr class="uk-divider-icon">
+        </section>
+   

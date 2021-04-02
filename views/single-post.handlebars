@@ -1,0 +1,25 @@
+
+<article class="uk-padding uk-card uk-card-body">
+    {{!-- <ul class="uk-comment-list"> --}}
+{{> post-info post}}
+
+{{#if loggedIn}}
+
+    <form id="comment-form" class="uk-card uk-card-body uk-card-default">
+      <textarea name="comment" type="text" class="uk-textarea" rows="7" placeholder="Write your comment here..."></textarea>
+      <p class="uk-text-danger">ALL COMMENTS CANNOT BE DELETED AFTER SUBMITTING! BE RESPECTFUL.</p>
+      <button type="submit" class="uk-button uk-button-primary uk-align-right">Submit!</button> 
+    </form>
+
+{{/if}}
+<h3 class="uk-heading-line uk-text-center"><span>Comments</span></h3>
+{{> comments post.comments}}
+    
+
+  </ul>
+</article>
+</br>
+
+{{#if loggedIn}}
+<script src="/javascript/comment.js"></script>
+{{/if}}

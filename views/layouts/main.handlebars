@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Co-Bart!</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/stylesheets/uikit.min.css" />
+  <script src="/stylesheets/js/uikit.min.js"></script>
+  <script src="/stylesheets/js/uikit-icons.min.js"></script>
+</head>
+
+<!--background & navbar-->
+<div class="uk-position-relative">
+  <img class="uk-width-expand" src="/stylesheets/img/background.jpeg" alt="">
+  <div class="uk-position-top">
+    <nav class="uk-navbar-container uk-navbar-transparent uk-navbar">
+      <img src="/stylesheets/img/logo.svg" width="100" height="" alt="">
+      <div class="uk-navbar-right">
+        <ul class="uk-subnav uk-subnav-pill uk-text-bolder">
+          <li>
+            <a class="link" href="/">Home</a>
+          </li>
+          <li>
+            <a class="link" href="/dashboard">Dashboard</a></li>
+          <li>
+            {{#if loggedIn}}
+            <a class="link" id="logout" href="/login">Logout</a>
+          </li>
+          <li>
+            {{else}}
+            <a class="link" href="/login">Login</a>
+            {{/if}}
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<body>
+
+{{{body}}}
+
+
+<!-- footer section -->
+<footer>
+    <p class="uk-text-center uk-text-muted">Created by <a>AR</a>, <a>TN</a>, + <a>NT</a></p>
+</footer>
+
+</body>
+
+{{#if loggedIn}}
+<script src="/javascript/logout.js"></script>
+{{/if}}

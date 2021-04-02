@@ -1,0 +1,62 @@
+
+{{> main-header post.main-header}}
+
+<form class="uk-card-secondary uk-card-body uk-width-3-4 uk-align-center edit-post">
+        <fieldset id="edit-post-form" class="uk-fieldset">
+    
+            <legend class="uk-legend uk-text-center">Post to the community!</legend>
+    
+            <div class="uk-margin">
+                <p>Departing Station</p>
+                <select name="departing-train" class="uk-select">
+                    <option value="">{{post.depart_station}}</option>
+                     <div class="stations">
+
+                        {{#each bartname }}
+                        <option>
+                            <p data-stationname={{ this.stationname}}>
+                                {{ this.name }}
+                            </p>
+                        </option>
+                        {{/each }}
+
+                    </div>
+                </select>
+            </div>
+    
+            <div class="uk-margin">
+                <p class="">Arrival Station</p>
+                <select name="arrival-train" class="uk-select">
+                    <option value="">{{post.arrive_station}}</option>
+                     <div class="stations">
+
+                        {{#each bartname }}
+                        <option>
+                            <p data-stationname={{ this.stationname}}>
+                                {{ this.name }}
+                            </p>
+                        </option>
+                        {{/each }}
+
+                    </div>
+                </select>
+            </div>
+    
+            <div class="uk-margin">
+                <textarea name="content" type="text" value="{{post.content}}" class="uk-textarea" rows="6">{{post.content}}</textarea>
+            </div>
+    
+            <div class="uk-margin uk-text-right uk-grid-small uk-child-width-auto uk-grid">
+                <label><input class="uk-checkbox" type="checkbox"> I agree that this post is bart related.</label>
+            </div>
+
+            <div class="uk-card uk-card-body uk-text-center">
+                <a type="button" class="uk-button uk-button-primary uk-align-right edit-post-btn" href="/dashboard">Update Post!</a>
+                <a type="button" class="uk-button uk-button-primary uk-align-left delete-post-btn" href="/dashboard">Delete Post!</a>
+            </div>
+    
+        </fieldset>
+    </form>
+
+<script src="/javascript/edit-post.js"></script>
+<script src="/javascript/delete-post.js"></script>

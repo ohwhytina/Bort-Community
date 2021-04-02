@@ -1,0 +1,19 @@
+
+    {{#each this}}
+    
+    <li class="comments uk-card uk-card-secondary uk-card-body uk-visible-toggle" tabindex="-1">
+        <header class="uk-comment-header uk-position-relative">
+            <div class="uk-grid-medium uk-flex-middle uk-grid">
+                <div class="uk-width-expand">
+                    <p class="uk-comment-meta uk-margin-remove">{{user.username}}</p>
+                    <p class="uk-comment-meta uk-margin-remove-top">{{format_date created_at}}</p>
+                </div>
+            </div>
+        </header>
+        <div class="uk-comment-body">
+            <p>{{comment_text}}</p>
+        </div>
+    </li>
+    <hr>
+    
+    {{/each}}
