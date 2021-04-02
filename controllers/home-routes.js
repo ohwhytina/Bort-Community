@@ -116,11 +116,15 @@ router.get('/signup', (req, res) => {
   res.render('signup');
 });
 
-router.post('/filter'), (req, res) => {
+router.get('/api/posts'), (req, res) => {
+  // console.log(posts, depart_station)
   if (req.session.loggedIn) {
-    Post.findAll({where: req.body.depart_station})
-    
+    Post.findAll(
+      {where: 
+        req.query.depart_station
+      })
     .then(posts => {
+      var arr = [];
       res.render('homepage', {
       posts,
       loggedIn: req.session.loggedIn
