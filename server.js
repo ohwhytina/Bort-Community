@@ -10,10 +10,8 @@ const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const sess = {
-  secret: 'Really secret',
-  cookie: {
-    maxAge: 600000
-  },
+  secret: 'Really totally secret',
+  cookie: {},
   resave: false,
   saveUninitialized: true,
   store: new SequelizeStore({
