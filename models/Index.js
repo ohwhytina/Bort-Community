@@ -34,3 +34,5 @@ Post.hasMany(Comment, {
 });
 
 module.exports = { User, Post, Comment };
+
+//adding comment for testing purposes.
