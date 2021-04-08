@@ -32,4 +32,6 @@ async function newFormHandler(event) {
   }
 };
 
+// test comment. 
+
 document.querySelector('.post-button')?document.querySelector('.post-button').addEventListener('click', newFormHandler):null;
