@@ -1,6 +1,6 @@
 
-<article class="uk-padding uk-card uk-card-body ">
-    <ul class="uk-comment-list">
+<article class="uk-padding uk-card uk-card-body">
+    {{!-- <ul class="uk-comment-list"> --}}
 {{> post-info post}}
 
 {{#if loggedIn}}
@@ -12,7 +12,7 @@
     </form>
 
 {{/if}}
-
+<h3 class="uk-heading-line uk-text-center"><span>Comments</span></h3>
 {{> comments post.comments}}
     
 

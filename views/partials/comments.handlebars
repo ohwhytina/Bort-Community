@@ -1,10 +1,11 @@
+
 {{!-- <li class="comments"> --}}
     {{#each this}}
     <article class="comments uk-comment uk-card uk-card-secondary uk-card-body uk-visible-toggle" tabindex="-1">
         <header class="uk-comment-header uk-position-relative">
             <div class="uk-grid-medium uk-flex-middle uk-grid">
                 <div class="uk-width-expand">
-                    <h3 class="uk-comment-title uk-margin-remove">{{user.username}}</h3>
+                    <p class="uk-comment-meta uk-margin-remove">{{user.username}}</p>
                     <p class="uk-comment-meta uk-margin-remove-top">{{format_date created_at}}</p>
                 </div>
             </div>
@@ -12,6 +13,10 @@
         <div class="uk-comment-body">
             <p>{{comment_text}}</p>
         </div>
-    </article>
+    </li>
+    <hr>
+    
     {{/each}}
+    
 {{!-- </li> --}}
+
