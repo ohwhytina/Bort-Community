@@ -1,10 +1,9 @@
 {
-  "name": "Bort-Community",
+  "name": "bort-community",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
   "repository": {
@@ -28,9 +27,11 @@
     "express-session": "^1.17.1",
     "mysql2": "^2.2.5",
     "node": "^15.12.0",
-    "sequelize": "^6.6.2"
+    "sequelize": "^6.6.2",
+    "serve": "^11.3.2"
   },
   "devDependencies": {
-    "jest": "^26.6.3"
+    "jest": "^26.6.3",
+    "nodemon": "^2.0.7"
   }
 }
